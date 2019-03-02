@@ -32,13 +32,13 @@ int main(void)
 
     i = 0;
     list_for_each_entry_safe (item, is, &testlist, list) {
-        assert(item->i == values[i]);
+        assert_equal(values[i], item->i);
         list_del(&item->list);
         free(item);
         i++;
     }
 
-    assert(i == ARRAY_SIZE(values));
+    assert_equal(ARRAY_SIZE(values), i);
     assert(list_empty(&testlist));
 
     return 0;
