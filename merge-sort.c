@@ -3,7 +3,7 @@
 #include "list.h"
 #include "common.h"
 
-static uint16_t values[256];
+static uint16_t values[INPUT_SIZE];
 
 static void merge(struct list_head *list1, struct list_head *list2)
 {

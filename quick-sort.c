@@ -4,7 +4,7 @@
 
 #include "common.h"
 
-static uint16_t values[256];
+static uint16_t values[INPUT_SIZE];
 
 static void list_qsort(struct list_head *head)
 {
