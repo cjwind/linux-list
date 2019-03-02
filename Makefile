@@ -36,7 +36,8 @@ TESTS = \
     list_splice_init \
     list_splice_tail_init \
     list_cut_position \
-    list_mergesort
+    list_mergesort \
+    list_qsort
 
 TESTS := $(addprefix tests/,$(TESTS))
 # dependency of source files
@@ -65,14 +66,10 @@ insert-sort: insert-sort.o
 	$(VECHO) "  CC\t$@\n"
 	$(Q)$(CC) -o $@ $^ $(LDFLAGS)
 
-quick-sort: quick-sort.o
-	$(VECHO) "  CC\t$@\n"
-	$(Q)$(CC) -o $@ $^ $(LDFLAGS)
-
-sort: insert-sort quick-sort
+sort: insert-sort
 
 clean:
 	$(VECHO) "  Cleaning...\n"
-	$(Q)$(RM) $(TESTS) $(TESTS_OK) $(TESTS:=.o) $(TESTS:=.o.d) *.o *.o.d insert-sort quick-sort
+	$(Q)$(RM) $(TESTS) $(TESTS_OK) $(TESTS:=.o) $(TESTS:=.o.d) *.o *.o.d insert-sort
 
 -include $(deps)
