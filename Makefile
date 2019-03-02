@@ -4,7 +4,7 @@ $(GIT_HOOK): scripts/install-git-hooks
 	@echo
 
 .PHONY: all check clean
-all: $(GIT_HOOK) check merge-sort
+all: $(GIT_HOOK) check sort
 .DEFAULT_GOAL := all
 
 include common.mk
@@ -64,8 +64,18 @@ merge-sort: merge-sort.o
 	$(VECHO) "  CC\t$@\n"
 	$(Q)$(CC) -o $@ $^ $(LDFLAGS)
 
+insert-sort: insert-sort.o
+	$(VECHO) "  CC\t$@\n"
+	$(Q)$(CC) -o $@ $^ $(LDFLAGS)
+
+quick-sort: quick-sort.o
+	$(VECHO) "  CC\t$@\n"
+	$(Q)$(CC) -o $@ $^ $(LDFLAGS)
+
+sort: merge-sort insert-sort quick-sort
+
 clean:
 	$(VECHO) "  Cleaning...\n"
-	$(Q)$(RM) $(TESTS) $(TESTS_OK) $(TESTS:=.o) $(TESTS:=.o.d) *.o *.o.d merge-sort
+	$(Q)$(RM) $(TESTS) $(TESTS_OK) $(TESTS:=.o) $(TESTS:=.o.d) *.o *.o.d merge-sort insert-sort quick-sort
 
 -include $(deps)
