@@ -4,7 +4,7 @@ $(GIT_HOOK): scripts/install-git-hooks
 	@echo
 
 .PHONY: all check clean
-all: $(GIT_HOOK) check sort
+all: $(GIT_HOOK) check
 .DEFAULT_GOAL := all
 
 include common.mk
@@ -37,7 +37,8 @@ TESTS = \
     list_splice_tail_init \
     list_cut_position \
     list_mergesort \
-    list_qsort
+    list_qsort \
+    list_insertsort
 
 TESTS := $(addprefix tests/,$(TESTS))
 # dependency of source files
@@ -62,14 +63,8 @@ $(TESTS): %: %.o
 	$(VECHO) "  LD\t$@\n"
 	$(Q)$(CC) -o $@ $^ $(LDFLAGS)
 
-insert-sort: insert-sort.o
-	$(VECHO) "  CC\t$@\n"
-	$(Q)$(CC) -o $@ $^ $(LDFLAGS)
-
-sort: insert-sort
-
 clean:
 	$(VECHO) "  Cleaning...\n"
-	$(Q)$(RM) $(TESTS) $(TESTS_OK) $(TESTS:=.o) $(TESTS:=.o.d) *.o *.o.d insert-sort
+	$(Q)$(RM) $(TESTS) $(TESTS_OK) $(TESTS:=.o) $(TESTS:=.o.d)
 
 -include $(deps)
