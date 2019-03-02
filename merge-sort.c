@@ -1,7 +1,7 @@
 #include <assert.h>
 #include <stdlib.h>
 #include "list.h"
-#include "private/common.h"
+#include "common.h"
 
 static uint16_t values[256];
 
