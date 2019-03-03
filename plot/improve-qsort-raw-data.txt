@@ -1,0 +1,64 @@
+sequential input
+
+input size = 10000 (squential input)
+insert sort:    0.331802 sec
+quick sort:     0.002672 sec
+merge sort:     0.002502 sec
+
+input size = 20000 (squential input)
+insert sort:    1.359323 sec
+quick sort:     0.005772 sec
+merge sort:     0.005374 sec
+
+input size = 30000 (squential input)
+insert sort:    3.153447 sec
+quick sort:     0.008787 sec
+merge sort:     0.008243 sec
+
+input size = 40000 (squential input)
+insert sort:    5.480432 sec
+quick sort:     0.012565 sec
+merge sort:     0.012247 sec
+
+input size = 50000 (squential input)
+insert sort:    8.720736 sec
+quick sort:     0.015685 sec
+merge sort:     0.014800 sec
+
+input size = 60000 (squential input)
+insert sort:    13.069144 sec
+quick sort:     0.020015 sec
+merge sort:     0.018664 sec
+
+
+random input
+
+input size = 10000 (random input)
+insert sort:    0.310607 sec
+quick sort:     0.004416 sec
+merge sort:     0.004666 sec
+
+input size = 20000 (random input)
+insert sort:    1.341630 sec
+quick sort:     0.009444 sec
+merge sort:     0.009935 sec
+
+input size = 30000 (random input)
+insert sort:    2.829750 sec
+quick sort:     0.017257 sec
+merge sort:     0.016813 sec
+
+input size = 40000 (random input)
+insert sort:    4.511692 sec
+quick sort:     0.020403 sec
+merge sort:     0.021401 sec
+
+input size = 50000 (random input)
+insert sort:    6.393805 sec
+quick sort:     0.025930 sec
+merge sort:     0.026642 sec
+
+input size = 60000 (random input)
+insert sort:    7.801485 sec
+quick sort:     0.031967 sec
+merge sort:     0.031965 sec
