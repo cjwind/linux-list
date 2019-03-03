@@ -8,6 +8,7 @@
 #include <sys/time.h>
 
 #define INPUT_SIZE 256
+#define RANDOM_INPUT
 
 static uint16_t values[INPUT_SIZE];
 
@@ -35,7 +36,11 @@ int main()
     INIT_LIST_HEAD(&quick_sort_list);
     INIT_LIST_HEAD(&merge_sort_list);
 
+#ifdef RANDOM_INPUT
+    random_shuffle_array(values, (uint16_t) ARRAY_SIZE(values));
+#else
     sequential_array(values, (uint16_t) ARRAY_SIZE(values));
+#endif
 
     for (size_t i = 0; i < ARRAY_SIZE(values); i++) {
         item = (struct listitem *) malloc(sizeof(*item));
@@ -51,7 +56,12 @@ int main()
         list_add_tail(&item->list, &merge_sort_list);
     }
 
-    printf("input size = %d\n", INPUT_SIZE);
+    printf("input size = %d (", INPUT_SIZE);
+#ifdef RANDOM_INPUT
+    printf("random input)\n");
+#else
+    printf("squential input)\n");
+#endif
     printf("insert sort:\t");
     performance(&insert_sort_list, list_insertsort);
     printf("quick sort:\t");
