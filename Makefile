@@ -4,7 +4,7 @@ $(GIT_HOOK): scripts/install-git-hooks
 	@echo
 
 .PHONY: all check clean
-all: $(GIT_HOOK) check
+all: $(GIT_HOOK) check performance
 .DEFAULT_GOAL := all
 
 include common.mk
@@ -63,8 +63,12 @@ $(TESTS): %: %.o
 	$(VECHO) "  LD\t$@\n"
 	$(Q)$(CC) -o $@ $^ $(LDFLAGS)
 
+performance: performance.o
+	$(VECHO) "  LD\t$@\n"
+	$(Q)$(CC) -o $@ $^ $(LDFLAGS)
+
 clean:
 	$(VECHO) "  Cleaning...\n"
-	$(Q)$(RM) $(TESTS) $(TESTS_OK) $(TESTS:=.o) $(TESTS:=.o.d)
+	$(Q)$(RM) $(TESTS) $(TESTS_OK) $(TESTS:=.o) $(TESTS:=.o.d) *.o *.o.d performance
 
 -include $(deps)
