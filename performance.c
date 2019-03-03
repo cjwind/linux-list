@@ -24,7 +24,7 @@ void performance(struct list_head *list, void (*sort)(struct list_head *))
     unsigned long int usec = (stop.tv_usec < start.tv_usec)
                                  ? (1000000 + stop.tv_usec - start.tv_usec)
                                  : (stop.tv_usec - start.tv_usec);
-    printf("%lu sec %lu usec\n", sec, usec);
+    printf("%lu.%06lu sec\n", sec, usec);
 }
 
 int main()
