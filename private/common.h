@@ -65,4 +65,11 @@ static inline void random_shuffle_array(uint16_t *operations, uint16_t len)
     }
 }
 
+static inline void sequential_array(uint16_t *array, uint16_t len)
+{
+    for (uint16_t i = 0, j = len; i < len; i++, j--) {
+        array[i] = j;
+    }
+}
+
 #endif /* PRIVATE_COMMON_H */
