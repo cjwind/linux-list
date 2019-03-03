@@ -1,5 +1,6 @@
 *.o
 *.d
+*.png
 tests/*.ok
 tests/containerof
 tests/list_add
